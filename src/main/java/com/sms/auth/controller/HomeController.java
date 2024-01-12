@@ -39,9 +39,9 @@ public class HomeController {
 
     @GetMapping("/user/profile")
     public String profile(Principal principal, Model model){
-        String email = principal.getName();
-        User user = userRepository.findByEmail(email);
-        model.addAttribute("user",user);
+//        String email = principal.getName();
+//        User user = userRepository.findByEmail(email);
+//        model.addAttribute("user",user);
         return "profile";
     }
 
@@ -64,5 +64,14 @@ public class HomeController {
         }
 
         return "redirect:/register";
+    }
+
+    @ModelAttribute
+    public void commonUser(Principal principal,Model model){
+        if (principal !=null){
+            String email = principal.getName();
+            User user = userRepository.findByEmail(email);
+            model.addAttribute("user",user);
+        }
     }
 }

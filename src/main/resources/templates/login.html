@@ -20,6 +20,9 @@
 <!--                            <th:block th:text="${@userServiceImpl.removeMessage()}"></th:block>-->
 <!--                        </th:block>-->
                         <div class="card-body">
+                            <th:block th:if="${param.logout}">
+                                <p class="text-success">Logout Successfully</p>
+                            </th:block>
                             <form action="userLogin" method="post">
 
                                 <div class="mb-3">
