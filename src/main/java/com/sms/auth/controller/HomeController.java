@@ -1,19 +1,26 @@
 package com.sms.auth.controller;
 
 import com.sms.auth.entity.User;
+import com.sms.auth.repository.UserRepository;
 import com.sms.auth.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.security.Principal;
 
 @Controller
 public class HomeController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/")
     public String index(){
@@ -30,12 +37,15 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/profile")
-    public String profile(){
+    @GetMapping("/user/profile")
+    public String profile(Principal principal, Model model){
+        String email = principal.getName();
+        User user = userRepository.findByEmail(email);
+        model.addAttribute("user",user);
         return "profile";
     }
 
-    @GetMapping("/home")
+    @GetMapping("/user/home")
     public String home(){
         return "home";
     }
