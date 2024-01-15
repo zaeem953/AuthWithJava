@@ -37,18 +37,18 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/user/profile")
-    public String profile(Principal principal, Model model){
-//        String email = principal.getName();
-//        User user = userRepository.findByEmail(email);
-//        model.addAttribute("user",user);
-        return "profile";
-    }
-
-    @GetMapping("/user/home")
-    public String home(){
-        return "home";
-    }
+//    @GetMapping("/user/profile")
+//    public String profile(Principal principal, Model model){
+////        String email = principal.getName();
+////        User user = userRepository.findByEmail(email);
+////        model.addAttribute("user",user);
+//        return "profile";
+//    }
+//
+//    @GetMapping("/user/home")
+//    public String home(){
+//        return "home";
+//    }
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute User user, HttpSession httpSession){
