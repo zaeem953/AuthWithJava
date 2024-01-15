@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
 
@@ -61,6 +62,7 @@ public class HomeController {
         }else {
 //            System.out.println("No Added");
             httpSession.setAttribute("message","Something Went Wrong, Please try again");
+//            httpSession.
         }
 
         return "redirect:/register";
