@@ -17,7 +17,7 @@ public class apiData {
     }
 
     public String getTo() {
-        return to="Zaeemmavia321@gmail.com";
+        return to;
     }
 
     public void setTo(String to) {

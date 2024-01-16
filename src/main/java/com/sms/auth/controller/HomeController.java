@@ -44,8 +44,27 @@ public class HomeController {
 
     @GetMapping("/login")
     public String login(){
+
+        String uri = "https://f30f-182-191-146-99.ngrok-free.app/mail";
+//        String email=user.getEmail();
+//        System.out.println(email);
+        apiData apiData = new apiData();
+        apiData.setTo("zaeemmavia321@gmail.com");
+        apiData.setSubject("Login Notification");
+        apiData.setBody("You have been logged in successfully");
+        apiData.setMethod("GOOGLE_SMTP");
+
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.postForEntity(uri, apiData, apiData.class);
         return "login";
     }
+
+//    @GetMapping("/login")
+//    public String login(User user) {
+//        return "login";
+//    }
+
 
 //    @GetMapping("/user/profile")
 //    public String profile(Principal principal, Model model){
@@ -73,12 +92,14 @@ public class HomeController {
 //            System.out.println("No Added");
             httpSession.setAttribute("message","Something Went Wrong, Please try again");
         }
+        System.out.println(user.getEmail());
 
         String uri = "https://f30f-182-191-146-99.ngrok-free.app/mail";
 
+        String email=user.getEmail();
         apiData apiData = new apiData();
-        apiData.setTo(user.getEmail());
-        apiData.setSubject("m docker");
+        apiData.setTo(email);
+        apiData.setSubject("Register Notification");
         apiData.setBody("You are registered successfully");
         apiData.setMethod("GOOGLE_SMTP");
 

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -30,5 +32,10 @@ public class UserServiceImpl implements UserService {
     public void removeMessage() {
       HttpSession httpSession=((ServletRequestAttributes)(RequestContextHolder.getRequestAttributes())).getRequest().getSession();
       httpSession.removeAttribute("message");
+    }
+
+    @Override
+    public List<User> getAllStudent() {
+        return (List<User>) userRepository.findAll();
     }
 }
