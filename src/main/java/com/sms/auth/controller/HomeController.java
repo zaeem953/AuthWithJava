@@ -127,6 +127,9 @@ public class HomeController {
         return test;
     }
 
+    //---------------------------------------------FOR RESTCONTROLLER-------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------------
+
 //    @PostMapping("/mail")
 //    public ResponseEntity<apiData> getEmail(@RequestBody JsonNode requestBody) {
 //        String uri = "https://f30f-182-191-146-99.ngrok-free.app/mail";
@@ -144,26 +147,4 @@ public class HomeController {
 //
 //        return responseEntity;
 //    }
-
-//    @PostMapping("/mail")
-//    public ResponseEntity<apiData> getEmail(@RequestBody JsonNode requestBody) {
-//        String uri = "https://f30f-182-191-146-99.ngrok-free.app/mail";
-//
-//        String to = requestBody.get("to").asText();
-//        String subject = requestBody.get("subject").asText();
-//        String method = requestBody.get("method").asText();
-//
-//        User user = objectMapper.convertValue(requestBody.get("user"), User.class);
-//
-//        String body = "Dear " + user.getName() + ", you are registered successfully.";
-//
-//        apiData apiData = new apiData(to, subject, body, method, user.getName());
-//
-//        RestTemplate restTemplate = new RestTemplate();
-//
-//        ResponseEntity<apiData> responseEntity = restTemplate.postForEntity(uri, apiData, apiData.class);
-//
-//        return responseEntity;
-//    }
-
 }
