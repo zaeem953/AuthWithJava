@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sms.auth.entity.User;
 import com.sms.auth.entity.apiData;
 import com.sms.auth.repository.UserRepository;
+import com.sms.auth.routes.Routes;
 import com.sms.auth.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,20 +33,20 @@ public class HomeController {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @GetMapping("/")
+    @GetMapping(Routes.index)
     public String index(){
         return "index";
     }
 
-    @GetMapping("/register")
+    @GetMapping(Routes.register)
     public String register(){
         return "register";
     }
 
-    @GetMapping("/login")
+    @GetMapping(Routes.login)
     public String login(){
 
-        String uri = "https://f30f-182-191-146-99.ngrok-free.app/mail";
+        String uri = "https://bcb6-116-71-14-212.ngrok-free.app/mail";
 //        String email=user.getEmail();
 //        System.out.println(email);
         apiData apiData = new apiData();
@@ -94,7 +95,7 @@ public class HomeController {
         }
         System.out.println(user.getEmail());
 
-        String uri = "https://f30f-182-191-146-99.ngrok-free.app/mail";
+        String uri = "https://bcb6-116-71-14-212.ngrok-free.app/mail";
 
         String email=user.getEmail();
         apiData apiData = new apiData();
@@ -121,7 +122,7 @@ public class HomeController {
 
     @GetMapping("/test")
     public String getTest(){
-        String uri="https://f30f-182-191-146-99.ngrok-free.app/test";
+        String uri="https://bcb6-116-71-14-212.ngrok-free.app/test";
         RestTemplate restTemplate=new RestTemplate();
         String test=restTemplate.getForObject(uri,String.class);
         return test;
